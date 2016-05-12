@@ -15,7 +15,7 @@ namespace Garage2._0.Models
     public class Vehicle
     {
         public int Id { get; set; }
-        public int Type { get; set; }
+        public VehicleTypes Type { get; set; }
         public string RegNumber { get; set; }
         public string Color { get; set; }
         public string Brand { get; set; }
