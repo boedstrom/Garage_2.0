@@ -5,6 +5,13 @@ using System.Web;
 
 namespace Garage2._0.Models
 {
+    public enum VehicleTypes
+    {
+        Car = 1,
+        Van,
+        Truck
+    }
+
     public class Vehicle
     {
         public int Id { get; set; }
@@ -14,7 +21,6 @@ namespace Garage2._0.Models
         public string Brand { get; set; }
         public string Model { get; set; }
         public int NumOfWheels { get; set; }
-        public DateTime CheckIn { get; set; }
-        public DateTime CheckOut { get; set; }
+        public string CheckInTime { get; set; }
     }
 }
