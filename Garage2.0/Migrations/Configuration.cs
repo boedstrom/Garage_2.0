@@ -11,7 +11,7 @@ namespace Garage2._0.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-            AutomaticMigrationDataLossAllowed = true;
+            //AutomaticMigrationDataLossAllowed = true;
         }
 
         protected override void Seed(Garage2._0.DataAccessLayer.VehiclesContext context)
