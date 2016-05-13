@@ -116,6 +116,30 @@ namespace Garage2._0.Controllers
             return RedirectToAction("Index");
         }
 
+        //GET: Vehicles/CheckOutSearch
+        public ActionResult CheckOutSearch()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CheckOutSearch(string regNumber)
+        {
+            if (regNumber == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            Vehicle vehicle = db.Vehicles.FirstOrDefault(r => r.RegNumber.StartsWith(regNumber.ToUpper()));
+
+            if (vehicle == null)
+            {
+                return HttpNotFound();
+            }
+            return View("Delete", vehicle);
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
