@@ -51,6 +51,8 @@ namespace Garage2._0.Controllers
         {
             if (ModelState.IsValid)
             {
+                vehicle.RegNumber = vehicle.RegNumber.ToUpper();
+                vehicle.Color = vehicle.Color.ToLower();
                 db.Vehicles.Add(vehicle);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -111,6 +113,9 @@ namespace Garage2._0.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Vehicle vehicle = db.Vehicles.Find(id);
+
+            int parkTime = ParkingTime(vehicle.CheckInTime);
+
             db.Vehicles.Remove(vehicle);
             db.SaveChanges();
             return RedirectToAction("Index");
@@ -137,7 +142,18 @@ namespace Garage2._0.Controllers
             {
                 return HttpNotFound();
             }
-            return View("Delete", vehicle);
+            return RedirectToAction("Delete", new { vehicle.Id });
+        }
+
+        public int ParkingTime(string checkInTime)
+        {
+            int parkingTime = 0;
+            DateTime timeThen = DateTime.Parse(checkInTime);
+            DateTime timeNow = DateTime.Now;
+            TimeSpan timeElapsed = timeNow.Subtract(timeThen);
+
+            string elapsed = timeElapsed.ToString(@"d\.hh\:mm");
+            return parkingTime;
         }
 
         protected override void Dispose(bool disposing)
