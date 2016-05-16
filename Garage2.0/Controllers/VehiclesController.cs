@@ -39,7 +39,9 @@ namespace Garage2._0.Controllers
         // GET: Vehicles/Create
         public ActionResult Create()
         {
-            return View();
+            Vehicle vehicle = new Vehicle();
+            return View(vehicle);
+//            return View();
         }
 
         // POST: Vehicles/Create
