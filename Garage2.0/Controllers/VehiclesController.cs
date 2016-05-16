@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using Garage2._0.DataAccessLayer;
 using Garage2._0.Models;
+using System.Text.RegularExpressions;
 
 namespace Garage2._0.Controllers
 {
@@ -51,13 +52,15 @@ namespace Garage2._0.Controllers
         {
             if (ModelState.IsValid)
             {
-                vehicle.RegNumber = vehicle.RegNumber.ToUpper();
-                vehicle.Color = vehicle.Color.ToLower();
-                db.Vehicles.Add(vehicle);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (IsValidRegNumber(vehicle.RegNumber))
+                {
+                    vehicle.RegNumber = vehicle.RegNumber.ToUpper();
+                    vehicle.Color = vehicle.Color.ToLower();
+                    db.Vehicles.Add(vehicle);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
-
             return View(vehicle);
         }
 
@@ -85,9 +88,12 @@ namespace Garage2._0.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(vehicle).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (IsValidRegNumber(vehicle.RegNumber))
+                {
+                    db.Entry(vehicle).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
             return View(vehicle);
         }
@@ -161,6 +167,12 @@ namespace Garage2._0.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        
+        private static bool IsValidRegNumber(string value)
+        {
+            string pattern = @"^[a-zA-Z0-9]{1,8}$";
+            return Regex.IsMatch(value, pattern);
         }
     }
 }
