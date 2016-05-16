@@ -113,12 +113,21 @@ namespace Garage2._0.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Vehicle vehicle = db.Vehicles.Find(id);
-
-            int parkTime = ParkingTime(vehicle.CheckInTime);
-
+   
             db.Vehicles.Remove(vehicle);
             db.SaveChanges();
-            return RedirectToAction("Index");
+
+            ReciptViewModel reciptView = new ReciptViewModel();
+
+            reciptView.Id = vehicle.Id;
+            reciptView.Type = vehicle.Type;
+            reciptView.RegNumber = vehicle.RegNumber;
+            reciptView.CheckInTime = vehicle.CheckInTime;
+            reciptView.CheckOutTime = DateTime.Now;
+            reciptView.ParkingTime = reciptView.CheckOutTime.Subtract(reciptView.CheckInTime);
+            reciptView.ParkingFee = 60;
+
+            return RedirectToAction("Index", "ReciptView", reciptView);
         }
 
         //GET: Vehicles/CheckOutSearch
@@ -143,17 +152,6 @@ namespace Garage2._0.Controllers
                 return HttpNotFound();
             }
             return RedirectToAction("Delete", new { vehicle.Id });
-        }
-
-        public int ParkingTime(string checkInTime)
-        {
-            int parkingTime = 0;
-            DateTime timeThen = DateTime.Parse(checkInTime);
-            DateTime timeNow = DateTime.Now;
-            TimeSpan timeElapsed = timeNow.Subtract(timeThen);
-
-            string elapsed = timeElapsed.ToString(@"d\.hh\:mm");
-            return parkingTime;
         }
 
         protected override void Dispose(bool disposing)

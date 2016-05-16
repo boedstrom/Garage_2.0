@@ -13,5 +13,7 @@ namespace Garage2._0.DataAccessLayer
         public VehiclesContext() : base("GarageDatabase")
         {
         }
+
+        public System.Data.Entity.DbSet<Garage2._0.Models.ReciptViewModel> ReciptViewModels { get; set; }
     }
 }

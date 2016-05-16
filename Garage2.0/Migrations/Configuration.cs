@@ -20,10 +20,10 @@ namespace Garage2._0.Migrations
 
             //  This method will be called after migrating to the latest version.
             context.Vehicles.AddOrUpdate(r => r.RegNumber,
-                new Vehicle { Type = VehicleTypes.Car, RegNumber = "ABC123", Color = "Black", Brand = "Volvo", Model = "V70", NumOfWheels = 4, CheckInTime = currCheckIn },
-                new Vehicle { Type = VehicleTypes.Car, RegNumber = "DEF456", Color = "Silver", Brand = "BMW", Model = "M5", NumOfWheels = 4, CheckInTime = currCheckIn },
-                new Vehicle { Type = VehicleTypes.Van, RegNumber = "GHI789", Color = "White", Brand = "Ford", Model = "Ecoline", NumOfWheels = 4, CheckInTime = currCheckIn },
-                new Vehicle { Type = VehicleTypes.Truck, RegNumber = "AAA666", Color = "White", Brand = "Scania", Model = "R730", NumOfWheels = 10, CheckInTime = currCheckIn });
+                new Vehicle { Type = VehicleTypes.Car, RegNumber = "ABC123", Color = "Black", Brand = "Volvo", Model = "V70", NumOfWheels = 4, CheckInTime = DateTime.Now },
+                new Vehicle { Type = VehicleTypes.Car, RegNumber = "DEF456", Color = "Silver", Brand = "BMW", Model = "M5", NumOfWheels = 4, CheckInTime = DateTime.Now },
+                new Vehicle { Type = VehicleTypes.Van, RegNumber = "GHI789", Color = "White", Brand = "Ford", Model = "Ecoline", NumOfWheels = 4, CheckInTime = DateTime.Now },
+                new Vehicle { Type = VehicleTypes.Truck, RegNumber = "AAA666", Color = "White", Brand = "Scania", Model = "R730", NumOfWheels = 10, CheckInTime = DateTime.Now });
         }
     }
 }

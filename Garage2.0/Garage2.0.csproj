@@ -129,6 +129,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ReciptViewController.cs" />
     <Compile Include="Controllers\VehiclesController.cs" />
     <Compile Include="DataAccessLayer\VehiclesContext.cs" />
     <Compile Include="Global.asax.cs">
@@ -142,7 +143,12 @@
     <Compile Include="Migrations\201605120908284_Update.Designer.cs">
       <DependentUpon>201605120908284_Update.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201605160721448_NewDB.cs" />
+    <Compile Include="Migrations\201605160721448_NewDB.Designer.cs">
+      <DependentUpon>201605160721448_NewDB.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\ReciptViewModel.cs" />
     <Compile Include="Models\Vehicle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -187,6 +193,7 @@
     <Content Include="Views\Vehicles\Edit.cshtml" />
     <Content Include="Views\Vehicles\Index.cshtml" />
     <Content Include="Views\Vehicles\CheckOutSearch.cshtml" />
+    <Content Include="Views\ReciptView\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -205,6 +212,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201605120908284_Update.resx">
       <DependentUpon>201605120908284_Update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605160721448_NewDB.resx">
+      <DependentUpon>201605160721448_NewDB.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

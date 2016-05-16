@@ -21,6 +21,6 @@ namespace Garage2._0.Models
         public string Brand { get; set; }
         public string Model { get; set; }
         public int NumOfWheels { get; set; }
-        public string CheckInTime { get; set; } = DateTime.Now.ToString();
+        public DateTime CheckInTime { get; set; } = DateTime.Now;
     }
 }
