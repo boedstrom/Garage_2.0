@@ -135,6 +135,23 @@ namespace Garage2._0.Controllers
         }
 
         //GET: Vehicles/CheckOutSearch
+        public ActionResult Search()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Search([Bind(Include = "Id,Type,RegNumber,Color,Brand,Model,NumOfWheels,CheckInTime")] Vehicle vehicle)
+        {
+            if (ModelState.IsValid)
+            {
+                //Vehicle vehicle = db.Vehicles.Where(r => r.RegNu);
+            }
+            return View(vehicle);
+        }
+
+        //GET: Vehicles/CheckOutSearch
         public ActionResult CheckOutSearch()
         {
             return View();
