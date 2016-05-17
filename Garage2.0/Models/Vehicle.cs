@@ -22,7 +22,7 @@ namespace Garage2._0.Models
         [RegularExpression(@"^[a-zA-Z0-9]{1,8}$")]
         public string RegNumber { get; set; }
         [Required]
-        public string Color { get; set; } = "White";
+        public string Color { get; set; } = "white";
         [Required]
         public string Brand { get; set; }
         [Required]
