@@ -135,6 +135,12 @@ namespace Garage2._0.Controllers
         }
 
         //GET: Vehicles/CheckOutSearch
+        public ActionResult SearchResult(List<Vehicle> vehicles)
+        {
+            return View(vehicles);
+        }
+
+        //GET: Vehicles/CheckOutSearch
         public ActionResult Search()
         {
             return View();
@@ -142,11 +148,30 @@ namespace Garage2._0.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Search([Bind(Include = "Id,Type,RegNumber,Color,Brand,Model,NumOfWheels,CheckInTime")] Vehicle vehicle)
+        public ActionResult Search(SearchVehicleModel vehicle)
         {
-            if (ModelState.IsValid)
-            {
-                //Vehicle vehicle = db.Vehicles.Where(r => r.RegNu);
+            //var allVehicles = db.Vehicles.ToList();
+            
+
+
+            var result = db.Vehicles
+                .Where(c => ((vehicle.Type != null ? vehicle.Type : c.Type) == c.Type)
+                         && ((vehicle.RegNumber != null ? vehicle.RegNumber : c.RegNumber) == c.RegNumber)
+                         && ((vehicle.Color != null ? vehicle.Color : c.Color) == c.Color)
+                         && ((vehicle.Brand != null ? vehicle.Brand : c.Brand) == c.Brand)
+                         && ((vehicle.Model != null ? vehicle.Model : c.Model) == c.Model)
+                         && ((vehicle.NumOfWheels != null ? vehicle.NumOfWheels : c.NumOfWheels) == c.NumOfWheels)
+                         && ((vehicle.Color != null ? vehicle.Color : c.Color) == c.Color)
+                         && ((vehicle.CheckInTime != null ? vehicle.CheckInTime : c.CheckInTime) == c.CheckInTime));
+
+            if (result != null) {
+                var str = result.ToString();
+                var vehicles = new List<Vehicle>();
+                foreach (var r in result)
+                {
+                    vehicles.Add(r);
+                }
+                return View("SearchResult",vehicles);
             }
             return View(vehicle);
         }
