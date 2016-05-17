@@ -15,7 +15,7 @@ namespace Garage2._0.Controllers
             int days = recipt.ParkingTime.Days;
             int hours = recipt.ParkingTime.Hours;
             int mins = recipt.ParkingTime.Minutes;
-            int secs = recipt.ParkingTime.Seconds;
+            //int secs = recipt.ParkingTime.Seconds;
 
             int totalHours = (days * 24) + hours;
 

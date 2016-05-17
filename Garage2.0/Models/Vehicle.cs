@@ -17,12 +17,12 @@ namespace Garage2._0.Models
     {
         public int Id { get; set; }
         [Required]
-        public VehicleTypes Type { get; set; }
+        public VehicleTypes Type { get; set; } = VehicleTypes.Car;
         [Required]
         [RegularExpression(@"^[a-zA-Z0-9]{1,8}$")]
         public string RegNumber { get; set; }
         [Required]
-        public string Color { get; set; } = "white";
+        public string Color { get; set; }
         [Required]
         public string Brand { get; set; }
         [Required]
