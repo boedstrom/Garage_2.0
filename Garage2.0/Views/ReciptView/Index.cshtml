@@ -1,0 +1,86 @@
+﻿@model Garage2._0.Models.ReciptViewModel
+
+@{
+    ViewBag.Title = "Recipt";
+}
+
+<h2>Index</h2>
+
+<div>
+    <h4>Recipt</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Vehicle type
+@*            @Html.DisplayNameFor(model => model.Type)*@
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Type) 
+        </dd>
+
+        <dt>
+            Licence number
+@*            @Html.DisplayNameFor(model => model.RegNumber)*@
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RegNumber)
+        </dd>
+
+        <dt>
+            Check In time
+@*            @Html.DisplayNameFor(model => model.CheckInTime)*@
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CheckInTime)
+        </dd>
+
+        <dt>
+            Check Out time
+@*            @Html.DisplayNameFor(model => model.CheckOutTime)*@
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CheckOutTime)
+        </dd>
+
+        <dt>
+            Parking time
+@*            @Html.DisplayNameFor(model => model.ParkTimeString)*@
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ParkTimeString)
+        </dd>
+
+        <dt>
+            Hourly fee (Sek)
+@*            @Html.DisplayNameFor(model => model.ParkingFee)*@
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ParkingFee)
+        </dd>
+
+        <dt>
+            Total parking fee (Sek)
+@*            @Html.DisplayNameFor(model => model.TotalParkingFee)*@
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalParkingFee)
+        </dd>
+
+    </dl>
+</div>
+<div>
+    <p>
+        <input type="button" value="Print Recipt" onclick="window.print()" class="btn btn-primary" />
+    </p>
+</div>
+<p>
+    @Html.ActionLink("Back to Garage Overview", "Index", "Vehicles") |
+    @Html.ActionLink("Back to Start page", "Index", "Home")
+</p>
