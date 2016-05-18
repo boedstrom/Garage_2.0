@@ -4,11 +4,8 @@
     ViewBag.Title = "SearchResult";
 }
 
-<h2>SearchResult</h2>
+<h2>Search Result</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -65,5 +62,9 @@
         </td>
     </tr>
 }
-
 </table>
+
+<div>
+    @Html.ActionLink("Back to Garage Overview", "Index", "Vehicles") |
+    @Html.ActionLink("Back to Start page", "Index", "Home")
+</div>

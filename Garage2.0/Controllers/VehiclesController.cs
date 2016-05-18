@@ -150,10 +150,6 @@ namespace Garage2._0.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Search(SearchVehicleModel vehicle)
         {
-            //var allVehicles = db.Vehicles.ToList();
-            
-
-
             var result = db.Vehicles
                 .Where(c => ((vehicle.Type != null ? vehicle.Type : c.Type) == c.Type)
                          && ((vehicle.RegNumber != null ? vehicle.RegNumber : c.RegNumber) == c.RegNumber)
@@ -161,19 +157,42 @@ namespace Garage2._0.Controllers
                          && ((vehicle.Brand != null ? vehicle.Brand : c.Brand) == c.Brand)
                          && ((vehicle.Model != null ? vehicle.Model : c.Model) == c.Model)
                          && ((vehicle.NumOfWheels != null ? vehicle.NumOfWheels : c.NumOfWheels) == c.NumOfWheels)
-                         && ((vehicle.Color != null ? vehicle.Color : c.Color) == c.Color)
-                         && ((vehicle.CheckInTime != null ? vehicle.CheckInTime : c.CheckInTime) == c.CheckInTime));
+                         && ((vehicle.Color != null ? vehicle.Color : c.Color) == c.Color));
 
             if (result != null) {
-                var str = result.ToString();
                 var vehicles = new List<Vehicle>();
-                foreach (var r in result)
-                {
-                    vehicles.Add(r);
+                foreach (var vehicleMatchingSearchCriteria in result) {
+                    vehicles.Add(vehicleMatchingSearchCriteria);
                 }
-                return View("SearchResult",vehicles);
+                return View("SearchResult", vehicles);
             }
             return View(vehicle);
+        }
+
+        //GET: Vehicles/CheckOutSearch
+        public ActionResult SearchTime()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult SearchTime(SearchTimeModel interval)
+        {
+            var result = db.Vehicles
+                .Where(c => ((interval.StartTime != null ? interval.StartTime : c.CheckInTime) <= c.CheckInTime)
+                         && ((interval.EndTime != null ? interval.EndTime : c.CheckInTime) >= c.CheckInTime));
+
+            if (result != null)
+            {
+                var vehicles = new List<Vehicle>();
+                foreach (var vehicleMatchingSearchCriteria in result)
+                {
+                    vehicles.Add(vehicleMatchingSearchCriteria);
+                }
+                return View("SearchResult", vehicles);
+            }
+            return View(interval);
         }
 
         //GET: Vehicles/CheckOutSearch

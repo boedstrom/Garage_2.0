@@ -150,6 +150,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ReciptViewModel.cs" />
+    <Compile Include="Models\SearchTimeModel.cs" />
     <Compile Include="Models\SearchVehicleModel.cs" />
     <Compile Include="Models\Vehicle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -198,6 +199,7 @@
     <Content Include="Views\ReciptView\Index.cshtml" />
     <Content Include="Views\Vehicles\Search.cshtml" />
     <Content Include="Views\Vehicles\SearchResult.cshtml" />
+    <Content Include="Views\Vehicles\SearchTime.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
