@@ -7,30 +7,33 @@
 <h2>Search results</h2>
 
 <table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Type)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RegNumber)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Color)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Brand)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Model)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NumOfWheels)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CheckInTime)
-        </th>
-        <th></th>
-    </tr>
+<tr>
+    <th>
+        @Html.DisplayNameFor(model => model.Type)
+    </th>
+    <th>
+        Licence number
+@*            @Html.DisplayNameFor(model => model.RegNumber) *@
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.Color)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.Brand)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.Model)
+    </th>
+    <th>
+        Number of wheels
+@*          @Html.DisplayNameFor(model => model.NumOfWheels) *@
+    </th>
+    <th>
+        Check-in time
+@*          @Html.DisplayNameFor(model => model.CheckInTime) *@
+    </th>
+    <th></th>
+</tr>
 
 @foreach (var item in Model) {
     <tr>
