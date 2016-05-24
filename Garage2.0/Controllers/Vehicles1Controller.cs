@@ -9,7 +9,7 @@ using System.Web.Mvc;
 using Garage2_5.DataAccessLayer;
 using Garage2_5.Models;
 
-namespace Garage2_5.Controllers
+namespace Garage2._0.Controllers
 {
     public class Vehicles1Controller : Controller
     {
@@ -47,7 +47,7 @@ namespace Garage2_5.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,RegNumber,Color,Brand,Model,NumOfWheels,CheckInTime,MemberId")] Vehicle vehicle)
+        public ActionResult Create([Bind(Include = "Id,RegNumber,Color,Brand,Model,NumOfWheels,CheckInTime")] Vehicle vehicle)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace Garage2_5.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,RegNumber,Color,Brand,Model,NumOfWheels,CheckInTime,MemberId")] Vehicle vehicle)
+        public ActionResult Edit([Bind(Include = "Id,RegNumber,Color,Brand,Model,NumOfWheels,CheckInTime")] Vehicle vehicle)
         {
             if (ModelState.IsValid)
             {

@@ -19,7 +19,17 @@ namespace Garage2_5.Controllers
         // GET: Vehicles
         public ActionResult Index()
         {
-            return View(db.Vehicles.ToList());
+            var result = db.Vehicles.Include(t => t.VehicleType).Include(m => m.Member);
+            if (result != null)
+            {
+                var vehicles = new List<Vehicle>();
+                foreach (var v in result)
+                {
+                    vehicles.Add(v);
+                }
+                return View(vehicles);
+            }
+            return View();
         }
 
         // GET: Vehicles/Details/5
@@ -40,9 +50,19 @@ namespace Garage2_5.Controllers
         // GET: Vehicles/Create
         public ActionResult Create()
         {
-            Vehicle vehicle = new Vehicle();
-            return View(vehicle);
-//            return View();
+            //var result = db.VehicleTypes.ToList();
+
+            //if (result != null)
+            //{
+            //    public vehicleTypes = new IEnumerable<VehicleType>();
+
+            //    foreach (var r in result)
+            //    {
+            //        vehicleTypes.Add(r);
+            //    }
+            //    return View(vehicleTypes);
+            //}
+            return View();
         }
 
         // POST: Vehicles/Create

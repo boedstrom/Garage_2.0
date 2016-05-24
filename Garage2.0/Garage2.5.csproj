@@ -158,6 +158,8 @@
     <Compile Include="Models\SearchVehicleModel.cs" />
     <Compile Include="Models\Vehicle.cs" />
     <Compile Include="Models\VehicleType.cs" />
+    <Compile Include="Models\VehicleViewModel.cs" />
+    <Compile Include="Controllers\VehicleViewModelsController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -220,6 +222,11 @@
     <Content Include="Views\Vehicles1\Details.cshtml" />
     <Content Include="Views\Vehicles1\Edit.cshtml" />
     <Content Include="Views\Vehicles1\Index.cshtml" />
+    <Content Include="Views\VehicleViewModels\Create.cshtml" />
+    <Content Include="Views\VehicleViewModels\Delete.cshtml" />
+    <Content Include="Views\VehicleViewModels\Details.cshtml" />
+    <Content Include="Views\VehicleViewModels\Edit.cshtml" />
+    <Content Include="Views\VehicleViewModels\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
