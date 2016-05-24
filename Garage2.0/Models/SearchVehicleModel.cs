@@ -8,7 +8,7 @@ namespace Garage2._0.Models
 {
     public class SearchVehicleModel
     {
-        public VehicleTypes? Type { get; set; }
+//        public VehicleType? Type { get; set; }
 
         [RegularExpression(@"^[a-zA-Z0-9]{1,8}$")]
         public string RegNumber { get; set; }

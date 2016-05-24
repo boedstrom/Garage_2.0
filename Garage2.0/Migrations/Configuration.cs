@@ -18,11 +18,11 @@ namespace Garage2._0.Migrations
             string currCheckIn = DateTime.Now.ToString();
 
             //  This method will be called after migrating to the latest version.
-            context.Vehicles.AddOrUpdate(r => r.RegNumber,
-                new Vehicle { Type = VehicleTypes.Car, RegNumber = "ABC123", Color = "black", Brand = "Volvo", Model = "V70", NumOfWheels = 4, CheckInTime = DateTime.Now },
-                new Vehicle { Type = VehicleTypes.Car, RegNumber = "DEF456", Color = "silver", Brand = "BMW", Model = "M5", NumOfWheels = 4, CheckInTime = DateTime.Now },
-                new Vehicle { Type = VehicleTypes.Van, RegNumber = "GHI789", Color = "white", Brand = "Ford", Model = "Ecoline", NumOfWheels = 4, CheckInTime = DateTime.Now },
-                new Vehicle { Type = VehicleTypes.Truck, RegNumber = "AAA666", Color = "white", Brand = "Scania", Model = "R730", NumOfWheels = 10, CheckInTime = DateTime.Now });
+            //context.Vehicles.AddOrUpdate(r => r.RegNumber,
+            //    new Vehicle { Type = VehicleTypes.Car, RegNumber = "ABC123", Color = "black", Brand = "Volvo", Model = "V70", NumOfWheels = 4, CheckInTime = DateTime.Now },
+            //    new Vehicle { Type = VehicleTypes.Car, RegNumber = "DEF456", Color = "silver", Brand = "BMW", Model = "M5", NumOfWheels = 4, CheckInTime = DateTime.Now },
+            //    new Vehicle { Type = VehicleTypes.Van, RegNumber = "GHI789", Color = "white", Brand = "Ford", Model = "Ecoline", NumOfWheels = 4, CheckInTime = DateTime.Now },
+            //    new Vehicle { Type = VehicleTypes.Truck, RegNumber = "AAA666", Color = "white", Brand = "Scania", Model = "R730", NumOfWheels = 10, CheckInTime = DateTime.Now });
         }
     }
 }

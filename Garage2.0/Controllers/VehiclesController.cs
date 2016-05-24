@@ -124,7 +124,7 @@ namespace Garage2._0.Controllers
             ReciptViewModel reciptView = new ReciptViewModel();
 
             reciptView.Id = vehicle.Id;
-            reciptView.Type = vehicle.Type;
+//            reciptView.Type = vehicle.VehicleId.Name;
             reciptView.RegNumber = vehicle.RegNumber;
             reciptView.CheckInTime = vehicle.CheckInTime;
             reciptView.CheckOutTime = DateTime.Now;
@@ -150,22 +150,22 @@ namespace Garage2._0.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Search(SearchVehicleModel vehicle)
         {
-            var result = db.Vehicles
-                .Where(c => ((vehicle.Type != null ? vehicle.Type : c.Type) == c.Type)
-                         && ((vehicle.RegNumber != null ? vehicle.RegNumber : c.RegNumber) == c.RegNumber)
-                         && ((vehicle.Color != null ? vehicle.Color : c.Color) == c.Color)
-                         && ((vehicle.Brand != null ? vehicle.Brand : c.Brand) == c.Brand)
-                         && ((vehicle.Model != null ? vehicle.Model : c.Model) == c.Model)
-                         && ((vehicle.NumOfWheels != null ? vehicle.NumOfWheels : c.NumOfWheels) == c.NumOfWheels)
-                         && ((vehicle.Color != null ? vehicle.Color : c.Color) == c.Color));
+            //var result = db.Vehicles
+            //    .Where(c => ((vehicle.Type != null ? vehicle.Type : c.Type) == c.Type)
+            //             && ((vehicle.RegNumber != null ? vehicle.RegNumber : c.RegNumber) == c.RegNumber)
+            //             && ((vehicle.Color != null ? vehicle.Color : c.Color) == c.Color)
+            //             && ((vehicle.Brand != null ? vehicle.Brand : c.Brand) == c.Brand)
+            //             && ((vehicle.Model != null ? vehicle.Model : c.Model) == c.Model)
+            //             && ((vehicle.NumOfWheels != null ? vehicle.NumOfWheels : c.NumOfWheels) == c.NumOfWheels)
+            //             && ((vehicle.Color != null ? vehicle.Color : c.Color) == c.Color));
 
-            if (result != null) {
-                var vehicles = new List<Vehicle>();
-                foreach (var vehicleMatchingSearchCriteria in result) {
-                    vehicles.Add(vehicleMatchingSearchCriteria);
-                }
-                return View("SearchResult", vehicles);
-            }
+            //if (result != null) {
+            //    var vehicles = new List<Vehicle>();
+            //    foreach (var vehicleMatchingSearchCriteria in result) {
+            //        vehicles.Add(vehicleMatchingSearchCriteria);
+            //    }
+            //    return View("SearchResult", vehicles);
+            //}
             return View(vehicle);
         }
 

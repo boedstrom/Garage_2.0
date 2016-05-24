@@ -130,8 +130,11 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MembersController.cs" />
     <Compile Include="Controllers\ReciptViewController.cs" />
+    <Compile Include="Controllers\Vehicles1Controller.cs" />
     <Compile Include="Controllers\VehiclesController.cs" />
+    <Compile Include="Controllers\VehicleTypesController.cs" />
     <Compile Include="DataAccessLayer\VehiclesContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -149,10 +152,12 @@
       <DependentUpon>201605160721448_NewDB.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Member.cs" />
     <Compile Include="Models\ReciptViewModel.cs" />
     <Compile Include="Models\SearchTimeModel.cs" />
     <Compile Include="Models\SearchVehicleModel.cs" />
     <Compile Include="Models\Vehicle.cs" />
+    <Compile Include="Models\VehicleType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -200,6 +205,21 @@
     <Content Include="Views\Vehicles\Search.cshtml" />
     <Content Include="Views\Vehicles\SearchResult.cshtml" />
     <Content Include="Views\Vehicles\SearchTime.cshtml" />
+    <Content Include="Views\VehicleTypes\Create.cshtml" />
+    <Content Include="Views\VehicleTypes\Delete.cshtml" />
+    <Content Include="Views\VehicleTypes\Details.cshtml" />
+    <Content Include="Views\VehicleTypes\Edit.cshtml" />
+    <Content Include="Views\VehicleTypes\Index.cshtml" />
+    <Content Include="Views\Members\Create.cshtml" />
+    <Content Include="Views\Members\Delete.cshtml" />
+    <Content Include="Views\Members\Details.cshtml" />
+    <Content Include="Views\Members\Edit.cshtml" />
+    <Content Include="Views\Members\Index.cshtml" />
+    <Content Include="Views\Vehicles1\Create.cshtml" />
+    <Content Include="Views\Vehicles1\Delete.cshtml" />
+    <Content Include="Views\Vehicles1\Details.cshtml" />
+    <Content Include="Views\Vehicles1\Edit.cshtml" />
+    <Content Include="Views\Vehicles1\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
