@@ -6,11 +6,11 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using Garage2._0.DataAccessLayer;
-using Garage2._0.Models;
+using Garage2_5.DataAccessLayer;
+using Garage2_5.Models;
 using System.Text.RegularExpressions;
 
-namespace Garage2._0.Controllers
+namespace Garage2_5.Controllers
 {
     public class VehiclesController : Controller
     {

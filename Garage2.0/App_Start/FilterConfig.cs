@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace Garage2._0
+namespace Garage2_5
 {
     public class FilterConfig
     {

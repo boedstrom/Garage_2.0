@@ -4,20 +4,20 @@ using System.Linq;
 using System.Web;
 using System.Data.Entity;
 
-namespace Garage2._0.DataAccessLayer
+namespace Garage2_5.DataAccessLayer
 {
     public class VehiclesContext : DbContext
     {
         public DbSet<Models.Vehicle> Vehicles { get; set; }
         
-        public VehiclesContext() : base("GarageDatabase")
+        public VehiclesContext() : base("GarageDatabase2.5")
         {
         }
 
-        public System.Data.Entity.DbSet<Garage2._0.Models.ReciptViewModel> ReciptViewModels { get; set; }
+        public System.Data.Entity.DbSet<Garage2_5.Models.ReciptViewModel> ReciptViewModels { get; set; }
 
-        public System.Data.Entity.DbSet<Garage2._0.Models.VehicleType> VehicleTypes { get; set; }
+        public System.Data.Entity.DbSet<Garage2_5.Models.VehicleType> VehicleTypes { get; set; }
 
-        public System.Data.Entity.DbSet<Garage2._0.Models.Member> Members { get; set; }
+        public System.Data.Entity.DbSet<Garage2_5.Models.Member> Members { get; set; }
     }
 }

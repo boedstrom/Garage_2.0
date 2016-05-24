@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Garage2.0", "Garage2.0\Garage2.0.csproj", "{C2942116-BE5F-41F2-9E81-8A19BECE2156}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Garage2.5", "Garage2.0\Garage2.5.csproj", "{C2942116-BE5F-41F2-9E81-8A19BECE2156}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

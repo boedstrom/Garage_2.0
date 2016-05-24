@@ -1,4 +1,4 @@
-namespace Garage2._0.Migrations
+namespace Garage2_5.Migrations
 {
     using System;
     using System.Data.Entity;
@@ -6,14 +6,14 @@ namespace Garage2._0.Migrations
     using System.Linq;
     using Models;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Garage2._0.DataAccessLayer.VehiclesContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<Garage2_5.DataAccessLayer.VehiclesContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(Garage2._0.DataAccessLayer.VehiclesContext context)
+        protected override void Seed(Garage2_5.DataAccessLayer.VehiclesContext context)
         {
             string currCheckIn = DateTime.Now.ToString();
 

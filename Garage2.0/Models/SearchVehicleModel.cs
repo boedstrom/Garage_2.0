@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace Garage2._0.Models
+namespace Garage2_5.Models
 {
     public class SearchVehicleModel
     {

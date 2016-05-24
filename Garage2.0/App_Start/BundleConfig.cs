@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace Garage2._0
+namespace Garage2_5
 {
     public class BundleConfig
     {

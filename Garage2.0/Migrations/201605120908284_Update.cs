@@ -1,4 +1,4 @@
-namespace Garage2._0.Migrations
+namespace Garage2_5.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
