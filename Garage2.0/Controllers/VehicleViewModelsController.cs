@@ -25,52 +25,102 @@ namespace Garage2._0.Models
         // GET: VehicleViewModels/Details/5
         public ActionResult Details(int? id)
         {
-            //if (id == null)
-            //{
-            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            Vehicle vehicle = db.Vehicles.Find(id);
+            if (vehicle == null)
+            {
+                return HttpNotFound();
+            }
+
+            VehicleViewModel vehicleViewModel = new VehicleViewModel();
+            //bool valuesOk = false;
+
+            
+            //    vehicleViewModel.Members = new List<Member>();
+            //    foreach (Member m in memberResult)
+            //    {
+            //        vehicleViewModel.Members.Add(m);
+            //    }
+            //    valuesOk = true;
             //}
-            //VehicleViewModel vehicleViewModel = db.VehicleViewModels.Find(id);
-            //if (vehicleViewModel == null)
+
+            //var typeResult = db.VehicleTypes.ToList();
+            //if (typeResult != null)
             //{
-            //    return HttpNotFound();
+            //    vehicleViewModel.VehicleTypes = new List<VehicleType>();
+
+            //    foreach (VehicleType t in typeResult)
+            //    {
+            //        vehicleViewModel.VehicleTypes.Add(t);
+            //    }
+            //    valuesOk = true;
             //}
-            //return View(vehicleViewModel);
-            return View();
+            //if (valuesOk)
+            //    return View(vehicleViewModel);
+            //else
+            //    return View();
+
+
+
+            return View(vehicleViewModel);
         }
 
         // GET: VehicleViewModels/Create
         public ActionResult Create()
         {
             VehicleViewModel vehicleViewModel = new VehicleViewModel();
+            bool valuesOk = false;
 
-            var result = db.VehicleTypes.ToList();
-            if (result != null)
+            var memberResult = db.Members.ToList();
+            if (memberResult != null)
+            {
+                vehicleViewModel.Members = new List<Member>();
+                foreach (Member m in memberResult)
+                {
+                    vehicleViewModel.Members.Add(m);
+                }
+                valuesOk = true;
+            }
+
+            var typeResult = db.VehicleTypes.ToList();
+            if (typeResult != null)
             {
                 vehicleViewModel.VehicleTypes = new List<VehicleType>();
 
-                foreach (VehicleType r in result)
+                foreach (VehicleType t in typeResult)
                 {
-                    vehicleViewModel.VehicleTypes.Add(r);
+                    vehicleViewModel.VehicleTypes.Add(t);
                 }
-                return View(vehicleViewModel);
+                valuesOk = true;
             }
-            return View();
+            if (valuesOk)
+                return View(vehicleViewModel);
+            else
+                return View();
         }
 
         // POST: VehicleViewModels/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,RegNumber,Color,Brand,Model,NumOfWheels,CheckInTime")] VehicleViewModel vehicleViewModel)
+        public ActionResult Create(VehicleViewModel vehicleViewModel)
         {
-            //if (ModelState.IsValid)
-            //{
-            //    db.VehicleViewModels.Add(vehicleViewModel);
-            //    db.SaveChanges();
-            //    return RedirectToAction("Index");
-            //}
+            Vehicle vehicle = new Vehicle();
 
-            //return View(vehicleViewModel);
-            return View();
+            vehicle.RegNumber = vehicleViewModel.RegNumber.ToUpper();
+            vehicle.Brand = vehicleViewModel.Brand;
+            vehicle.Model = vehicleViewModel.Model;
+            vehicle.Color = vehicleViewModel.Color.ToLower();
+            vehicle.NumOfWheels = vehicleViewModel.NumOfWheels;
+            vehicle.Member = db.Members.Find(vehicleViewModel.MemberId);
+            vehicle.VehicleType = db.VehicleTypes.Find(vehicleViewModel.VehicleTypeId);
+
+            db.Vehicles.Add(vehicle);
+            db.SaveChanges();
+            return RedirectToAction("Index", "Vehicles");
         }
 
         // GET: VehicleViewModels/Edit/5

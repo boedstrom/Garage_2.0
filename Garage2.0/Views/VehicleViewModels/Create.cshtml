@@ -1,10 +1,10 @@
 ﻿@model Garage2_5.Models.VehicleViewModel
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Check-in";
 }
 
-<h2>Create</h2>
+<h2>Check-in</h2>
 
 
 @using (Html.BeginForm()) 
@@ -12,12 +12,20 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>VehicleViewModel</h4>
+        <h4>Vehicle</h4>
         <hr />
+        <div class="form-group">
+            @Html.LabelFor(model => model.Members, "Members", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.MemberId, new SelectList(Model.Members, "Id", "Name"), htmlAttributes: new { @class = "form-control", @value = Model.Members})
+                @Html.ValidationMessageFor(model => model.Members, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
         <div class="form-group">
             @Html.LabelFor(model => model.VehicleTypes, "Vehicle type", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.VehicleTypes, new SelectList(Model.VehicleTypes, Model.VehicleTypes.Id, Model.VehicleTypes.Name), htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownListFor(model => model.VehicleTypeId, new SelectList(Model.VehicleTypes, "Id", "Name"), htmlAttributes: new { @class = "form-control", @value = Model.VehicleTypes })
                 @Html.ValidationMessageFor(model => model.VehicleTypes, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -28,7 +36,7 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.RegNumber, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.RegNumber, "", new { @class = "text-danger" })
-            </div>
+            </div>      
         </div>
 
         <div class="form-group">
@@ -64,14 +72,15 @@
         </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Check-in" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to Garage Overview", "Index", "Vehicles") |
+    @Html.ActionLink("Back to Start page", "Index", "Home")
 </div>
 
 @section Scripts {
