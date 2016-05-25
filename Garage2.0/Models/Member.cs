@@ -20,5 +20,7 @@ namespace Garage2_5.Models
         public string Phone { get; set; }
         [Required]
         public string Email { get; set; }
+
+        public virtual ICollection<Vehicle> MyVehicles { get; set; }
     }
 }
